@@ -1,0 +1,12 @@
+# Django Kurulumu
+    - python3 -m install Django
+    - django-admin startproject "uygulama adı"
+    - python3 manage.py runserver
+
+
+# Python virtaual Environment Kurulumu
+    - python3 -m venv env
+    - source env/bin/activate
+    - deactivate
+
+
