@@ -10,7 +10,7 @@ def service_page(request):
     return render(request, 'mainboard/service.html')
 
 def account_settings(request):
-    return render(request, 'mainboard/account_settings.html')
+    return render(request, 'mainboard/account-settings.html')
 
 def view_customer(request, pk):
     return render(request, 'mainboard/customer.html')

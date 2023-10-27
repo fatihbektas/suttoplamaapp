@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Assign Page</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+  Sipariş Atama
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg">
+        <label for="services">Siparişi Yönlendir</label>
+        <select name="services" id="select-service" class="form-control">
+          <!-- TODO: for ile servisleri dön -->
+          <option value="1">Service1</option>
+          <option value="2">Service2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('select-service').change(function () {
+        var selected_id = $(this).children('option:selected').val()
+        $('a').attr("href", selected_id)ß
+      })
+    })
+  </script>
+{% endblock %}

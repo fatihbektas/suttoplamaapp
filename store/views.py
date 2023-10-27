@@ -4,8 +4,8 @@ from django.shortcuts import render
 def store(request):
     return render(request, 'store/store.html')
 
-def card(request):
-    return render(request, 'store/card.html')
+def shopping_cart(request):
+    return render(request, 'store/shopping-cart.html')
 
 def checkout(request):
     return render(request, 'store/checkout.html')

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'css/account.css' %}" />
+{% endblock %}
+
+{% block title %}
+  Profil Ayarları
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card card-body text-center">
+        <a href="{% url 'mainboard:user-page' %}" class="btn btn-warning">&#8592; Ekrana Dön</a>
+        <hr />
+        <h5>Hesap Ayarları</h5>
+        <hr />
+        <!-- TODO: if-else kullanıcı resim kontrolü -->
+        <img src="{% static 'icons/person-circle.svg' %}" alt="Kullanıcı profil fotoğrafı" class="profile-pic" />
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card card-body">
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <!-- TODO: form.as_p kullanımına bak-->
+          {{form.as_p}}
+          <input type="submit" class="btn btn-success" value="Güncelle">
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
