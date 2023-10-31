@@ -1,11 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Login Page</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+  {% comment %} <link rel="stylesheet" href="{% static 'css/login.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block title %}
+  Kullanıcı Giriş
+{% endblock %}
+
+{% block content %}
+  <div class="row" id="login">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 m-2 p-5">
+      <div class="mb-2 w-100">
+        <p class="fs-5 fw-bold text-center">KULLANICI GİRİŞİ</p>
+      </div>
+      <div class="form-floating mb-1">
+        <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" />
+        <label for="floatingEmail">E-Posta</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Şifre" />
+        <label for="floatingPassword">Şifre</label>
+      </div>
+      <div class="d-flex flex-column align-items-center w-100">
+        <input type="button" class="btn btn-primary mb-2 w-100" value="Giriş" />
+        <p>Hesabın var mı? <a href="{% url 'account:register' %}">Kaydol</a></p>
+
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+{% endblock %}

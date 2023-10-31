@@ -1,61 +1,60 @@
 {% extends 'base.html' %}
-{% block title %}Mainboard Ekranı{% endblock title %}Mainboard Ekranı
-{% block content %}
+{% block title %}
+  Mainboard Ekranı
+{% endblock %}Mainboard Ekranı{% block content %}
   {% include 'mainboard/partials/_status.html' %}
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-5">
-        <h5>MÜŞTERİLER</h5>
-        <hr />
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered" id="customer_datatable">
-            <thead>
-              <th>Görüntüle</th>
-              <th>Müşteri</th>
-              <th>Telefon</th>
-              <th>E-Posta</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Görüntüle</td>
-                <td>Ahmet</td>
-                <td>532 511 12 13</td>
-                <td>ahmet@gmail.com</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="row">
+    <div class="col-md-5">
+      <h5>MÜŞTERİLER</h5>
+      <hr />
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered" id="customer_datatable">
+          <thead>
+            <th>Görüntüle</th>
+            <th>Müşteri</th>
+            <th>Telefon</th>
+            <th>E-Posta</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Görüntüle</td>
+              <td>Ahmet</td>
+              <td>532 511 12 13</td>
+              <td>ahmet@gmail.com</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="col-md-7">
-        <h5>SİPARİŞLER</h5>
-        <hr />
-        <div class="table-responsive">
-          <table id="customer-datatable" class="table table-striped table-bordered">
-            <thead>
-              <th>Müşteri</th>
-              <th>Servis</th>
-              <th>Sipariş Id</th>
-              <th>Tarih</th>
-              <th>Durum</th>
-              <th>Tutar</th>
-              <th>Görüntüle</th>
-              <th>Sil</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Fatih</td>
-                <td>Ahmet</td>
-                <td>1</td>
-                <td>05 06 2013</td>
-                <td>Sipariş alındı</td>
-                <td>102.90</td>
-                <td>Görüntüle</td>
-                <td>Sil</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    </div>
+    <div class="col-md-7">
+      <h5>SİPARİŞLER</h5>
+      <hr />
+      <div class="table-responsive">
+        <table id="customer-datatable" class="table table-striped table-bordered">
+          <thead>
+            <th>Müşteri</th>
+            <th>Servis</th>
+            <th>Sipariş Id</th>
+            <th>Tarih</th>
+            <th>Durum</th>
+            <th>Tutar</th>
+            <th>Görüntüle</th>
+            <th>Sil</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fatih</td>
+              <td>Ahmet</td>
+              <td>1</td>
+              <td>05 06 2013</td>
+              <td>Sipariş alındı</td>
+              <td>102.90</td>
+              <td>Görüntüle</td>
+              <td>Sil</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
