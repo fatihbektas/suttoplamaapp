@@ -28,7 +28,7 @@ def order_detail(request, id):
 
 
 def order_assign(request, id):
-    return render(request, 'store/assign.hhtml')
+    return render(request, 'store/assign.html')
 
 
 def order_assign_to_service(request, id, sid):
