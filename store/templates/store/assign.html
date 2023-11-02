@@ -9,7 +9,7 @@
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
       <div class="card">
-        <div class="card-header bg-primary-subtle ">
+        <div class="card-header bg-primary-subtle">
           <label for="services">Siparişi Yönlendir</label>
         </div>
         <div class="card-body">
@@ -31,7 +31,7 @@
     $(document).ready(function () {
       $('select-service').change(function () {
         var selected_id = $(this).children('option:selected').val()
-        $('a').attr("href", selected_id)
+        $('a').attr('href', selected_id)
       })
     })
   </script>

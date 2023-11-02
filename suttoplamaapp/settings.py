@@ -37,11 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # Proje Uygulamaları
     'account',
     'mainboard',
-    'store'
+    'store',
+
+    # 3rd-Part Uygulamaları
+    # 'crispy_forms',
+    # 'mapbox_location_field',
 ]
 
 MIDDLEWARE = [
