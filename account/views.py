@@ -2,8 +2,6 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from account.forms import CreateUserForm
 from django.contrib import messages
-from store.models import Order
-from django.http import HttpResponse
 
 
 def login(request):
