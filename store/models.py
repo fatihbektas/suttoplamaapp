@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Func, F, Sum
 from django.urls import reverse
-# from mapbox_location_field.models import LocationField
+from mapbox_location_field.models import LocationField
 
 
 class Customer(models.Model):
@@ -69,8 +69,8 @@ class Order(models.Model):
     delivery_time = models.IntegerField(default=0)
     is_delivered = models.BooleanField(
         verbose_name='Teslimat', default=False, null=True, blank=False)
-    # address = LocationField(verbose_name='Siparişin Konumu', null=True, blank=False, map_attrs={
-    #                         "placeholder": "Haritadan konum seçiniz."})
+    address = LocationField(verbose_name='Siparişin Konumu', null=True, blank=False, map_attrs={
+                            "placeholder": "Haritadan konum seçiniz."})
 
     def __str__(self):
         return str(self.id)
