@@ -46,8 +46,8 @@ class Service(models.Model):
 class Order(models.Model):
     ORDER_STATUS = (
         ('Recived', 'Sipariş alındı'),
-        ('Pending', 'İşlem görüyor'),
         ('Assigned', 'Servise atandı'),
+        ('Transporting', 'Taşımada'),
         ('Delivered', 'Teslim edildi'),
     )
     transaction_id = models.CharField(max_length=200, null=True)

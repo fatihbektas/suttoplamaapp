@@ -10,7 +10,18 @@ from store.models import *
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email']
+
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control',
+                                               'placeholder': 'Kullanıcı adı',
+                                               'aria-describedby': 'usernameInput', }),
+
+            'email': forms.TextInput(attrs={'class': 'form-control',
+                                            'placeholder': 'E-Posta',
+                                            'aria-describedby': 'emailInput', }),
+        }
+
 
 # account-settings.html sayfasındaki müşteri profil alanları
 

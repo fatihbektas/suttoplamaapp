@@ -8,7 +8,7 @@ from store.models import Customer, Order
 
 def customer_user_profile(sender, instance, created, **kwargs):
     if created:
-        group = Group.objects.get(name='customer')
+        group, created = Group.objects.get_or_create(name='customer')
         instance.groups.add(group)
         Customer.objects.create(
             user=instance,
