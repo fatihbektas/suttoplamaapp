@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        
+        <div class="card">
+          <div class="card-header">
+            <a href="#" class="btn btn-outline-success">&#x2190; Alışverişe Devam Et</a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Ürün</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col">Litre</th>
+                    <th scope="col">Toplam</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img src="{% static 'icons/item-image.svg' %}" />
+                    </td>
+                    <td>Yağsız İnek sütü</td>
+                    <td>12.5 ₺</td>
+                    <td>
+                      5
+                      <img data-product="" data-action="remove" src="{% static 'icons/caret-up-square-fill.svg' %}" />
+                      <img data-product="" data-action="remove" src="{% static 'icons/caret-down-square-fill.svg' %}" />
+                    </td>
+                    <td>62.50 ₺</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="{% static 'icons/item-image.svg' %}" />
+                    </td>
+                    <td>Yağsız İnek sütü</td>
+                    <td>12.5 ₺</td>
+                    <td>
+                      5
+                      <img data-product="" data-action="remove" src="{% static 'icons/caret-up-square-fill.svg' %}" />
+                      <img data-product="" data-action="remove" src="{% static 'icons/caret-down-square-fill.svg' %}" />
+                    </td>
+                    <td>62.50 ₺</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="{% static 'icons/item-image.svg' %}" />
+                    </td>
+                    <td>Yağsız İnek sütü</td>
+                    <td>12.5 ₺</td>
+                    <td>
+                      5
+                      <img data-product="" data-action="remove" src="{% static 'icons/caret-up-square-fill.svg' %}" />
+                      <img data-product="" data-action="remove" src="{% static 'icons/caret-down-square-fill.svg' %}" />
+                    </td>
+                    <td>62.50 ₺</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title">Ürünler: <strong>3</strong></h5>
+            <h5 class="card-title"><strong>500.00 ₺</strong></h5>
+            <a href="{% url 'store:checkout' %}" class="btn btn-success">Sipariş Ver</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+{% endblock %}

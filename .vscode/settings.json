@@ -1,0 +1,8 @@
+{
+    "todo-tree.tree.showBadges": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none",
+    "todo-tree.tree.scanMode": "workspace"
+}

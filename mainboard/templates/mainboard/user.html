@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+  Müşteri Ekranı
+{% endblock %}
+{% block content %}
+  {% include 'mainboard/partials/_status.html' %}
+  <hr />
+  <div class="row">
+    <div class="col-md">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered" id="user-datatables">
+          <thead class="table">
+            <th>Sipariş ID</th>
+            <th>Sipariş Tarihi</th>
+            <th>Durum</th>
+            <th>Not</th>
+            <th>Tutar</th>
+            <th>Görüntüle</th>
+            <th>Sil</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>15 Ekim 2023</td>
+              <td>Tamamlandi</td>
+              <td>Yağlı süt</td>
+              <td>560.00</td>
+              <td>Görüntüle</td>
+              <td>Sil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
