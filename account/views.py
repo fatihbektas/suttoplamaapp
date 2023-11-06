@@ -13,7 +13,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             if request.user.groups.all()[0].name in ['customer', 'service']:
-                return redirect('mainbord:user-page')
+                return redirect('mainboard:user-page')
             else:
                 return redirect('mainboard:mainboard')
         else:
