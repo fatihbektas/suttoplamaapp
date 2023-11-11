@@ -17,6 +17,7 @@ def store(request):
         order, created = Order.objects.get_or_create(
             customer=customer, complete=False
         )
+        cart_items = order.get_cart_items
     else:
         order = {'get_cart_total': 0, 'get_cart_items': 0}
         # Navbar sepetteki ürün miktarı

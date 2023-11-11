@@ -6,54 +6,23 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
       <div class="row row-cols-2 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card border-success-subtle text-center">
-            <div class="card-header"><img src="{% static 'icons/item-image.svg' %}" class="card-img-top"/></div>
-            <div class="card-body">
-              <h5 class="card-title">Tam yağlı süt</h5>
-              <p class="card-text">Yüzde %12 yağlı süt</p>
-            </div>
-            <div class="card-footer">
-              <button type="button" class="btn btn-outline-success w-100">Sepete Ekle</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-            <div class="card border-success-subtle text-center">
-              <div class="card-header"><img src="{% static 'icons/item-image.svg' %}" class="card-img-top" alt="..." /></div>
-              <div class="card-body">
-                <h5 class="card-title">Tam yağlı süt</h5>
-                <p class="card-text">Yüzde %12 yağlı süt</p>
-              </div>
-              <div class="card-footer">
-                <button type="button" class="btn btn-outline-success w-100">Sepete Ekle</button>
-              </div>
-            </div>
-          </div>
+        {% for product in products %}
           <div class="col">
-            <div class="card border-success-subtle text-center">
-              <div class="card-header"><img src="{% static 'icons/item-image.svg' %}" class="card-img-top" alt="..." /></div>
+            <div class="card border-success-subtle text-center h-100">
+              <div class="card-header">
+                <img src="{{ product.imageUrl }}" class="card-img-top" />
+              </div>
               <div class="card-body">
-                <h5 class="card-title">Tam yağlı süt</h5>
-                <p class="card-text">Yüzde %12 yağlı süt</p>
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
               </div>
               <div class="card-footer">
+                <button type="button" class="btn btn-outline-primary w-100 mb-1">{{ product.price }} ₺</button>
                 <button type="button" class="btn btn-outline-success w-100">Sepete Ekle</button>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card border-success-subtle text-center">
-              <div class="card-header"><img src="{% static 'icons/item-image.svg' %}" class="card-img-top" alt="..." /></div>
-              <div class="card-body">
-                <h5 class="card-title">Tam yağlı süt</h5>
-                <p class="card-text">Yüzde %12 yağlı süt</p>
-              </div>
-              <div class="card-footer">
-                <button type="button" class="btn btn-outline-success w-100">Sepete Ekle</button>
-              </div>
-            </div>
-          </div>
+        {% endfor %}
       </div>
     </div>
     <div class="col-lg-3"></div>
