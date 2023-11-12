@@ -22,47 +22,23 @@
                     <th scope="col">Toplam</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img src="{% static 'icons/item-image.svg' %}" />
-                    </td>
-                    <td>Yağsız İnek sütü</td>
-                    <td>12.5 ₺</td>
-                    <td>
-                      5
-                      <img data-product="" data-action="remove" src="{% static 'icons/caret-up-square-fill.svg' %}" />
-                      <img data-product="" data-action="remove" src="{% static 'icons/caret-down-square-fill.svg' %}" />
-                    </td>
-                    <td>62.50 ₺</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{% static 'icons/item-image.svg' %}" />
-                    </td>
-                    <td>Yağsız İnek sütü</td>
-                    <td>12.5 ₺</td>
-                    <td>
-                      5
-                      <img data-product="" data-action="remove" src="{% static 'icons/caret-up-square-fill.svg' %}" />
-                      <img data-product="" data-action="remove" src="{% static 'icons/caret-down-square-fill.svg' %}" />
-                    </td>
-                    <td>62.50 ₺</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="{% static 'icons/item-image.svg' %}" />
-                    </td>
-                    <td>Yağsız İnek sütü</td>
-                    <td>12.5 ₺</td>
-                    <td>
-                      5
-                      <img data-product="" data-action="remove" src="{% static 'icons/caret-up-square-fill.svg' %}" />
-                      <img data-product="" data-action="remove" src="{% static 'icons/caret-down-square-fill.svg' %}" />
-                    </td>
-                    <td>62.50 ₺</td>
-                  </tr>
-                </tbody>
+                {% for item in items %}
+                  <tbody>
+                    <tr>
+                      <td>
+                        <img src="{{ item.product.imageUrl }}" style="width: 50px;" />
+                      </td>
+                      <td>{{ item.product.name }}</td>
+                      <td>{{ item.product.price }}</td>
+                      <td>
+                        {{ item.quantity }}
+                        <img class="update-cart" data-product="{{ item.product.id }}" data-action="add" src="{% static 'icons/caret-up-square-fill.svg' %}" />
+                        <img class="update-cart" data-product="{{ item.product.id }}" data-action="remove" src="{% static 'icons/caret-down-square-fill.svg' %}" />
+                      </td>
+                      <td>{{ item.get_total }}</td>
+                    </tr>
+                  </tbody>
+                {% endfor %}
               </table>
             </div>
           </div>
@@ -70,8 +46,8 @@
 
         <div class="card mt-3">
           <div class="card-header d-flex justify-content-between">
-            <h5 class="card-title">Ürünler: <strong>3</strong></h5>
-            <h5 class="card-title"><strong>500.00 ₺</strong></h5>
+            <h5 class="card-title">Miktar: <strong>{{ order.get_cart_items }} litre</strong></h5>
+            <h5 class="card-title"><strong>{{ order.get_cart_total|floatformat:2 }} ₺</strong></h5>
             <a href="{% url 'store:checkout' %}" class="btn btn-success">Sipariş Ver</a>
           </div>
         </div>
