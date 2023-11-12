@@ -119,7 +119,7 @@ MEDIA_URL = 'images/'
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
 # Map Box Key
-MAPBOX_KEY = 'pk.eyJ1IjoiZmJla3RhcyIsImEiOiJjbG9tc3E1bXQwMXQ3MmpwcW5zeWoyN2E4In0.hcbnB1KZFVIiaK-Z7ung5g'
+MAPBOX_KEY = 'pk.eyJ1IjoiZmJla3RhcyIsImEiOiJjbG93MWlmcm8wdzZ2Mm1sOTF2bGxpZjJ6In0.j4fN8cNyUpnLVUFXMPEKiA'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

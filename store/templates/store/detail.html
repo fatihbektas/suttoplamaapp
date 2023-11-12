@@ -34,9 +34,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Vedat Görgülü</td>
-                    <td>532 478 45 22</td>
-                    <td>5 Aralık 2023</td>
+                    <td>{{ order.customer.name }}</td>
+                    <td>{{ order.customer.phone }}</td>
+                    <td>{{ order.date_ordered }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -56,14 +56,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Yağlı İnek Sütü</td>
-                    <td>150 Litre</td>
-                  </tr>
-                  <tr>
-                    <td>Az yağlı İnek Sütü</td>
-                    <td>50 Litre</td>
-                  </tr>
+                  {% for item in items %}
+                    <tr>
+                      <td>{{ item.product.name }}</td>
+                      <td>{{ item.quantity }}</td>
+                    </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>
@@ -78,35 +76,35 @@
                 <tbody>
                   <tr>
                     <th scope="row">Servis Adı</th>
-                    <td>Vedat Görgülü</td>
+                    <td>{{ order.service.user }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Servis Telefon</th>
-                    <td>546 578 15 78</td>
+                    <td>{{ order.service.user.customer.phone }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Sipariş Durumu</th>
-                    <td>Sipariş Alındı</td>
+                    <td>{{ order.status }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Sipariş Notu</th>
-                    <td>Acele gelmelisiniz</td>
+                    <td>{{ order.note }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Servise Atanma Tarihi</th>
-                    <td>12 05 2023 14:07</td>
+                    <td>{{ order.assign_date }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Servise Başlama Tarihi</th>
-                    <td>12 05 2023 15:07</td>
+                    <td>{{ order.service_date }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Teslim Tarihi</th>
-                    <td>12 05 2023 17:07</td>
+                    <td>{{ order.delivery_date }}</td>
                   </tr>
                   <tr>
                     <th scope="row">Tutar</th>
-                    <td>1097.00 ₺</td>
+                    <td>{{ order.get_cart_total }} ₺</td>
                   </tr>
                 </tbody>
               </table>
@@ -118,8 +116,9 @@
       <div class="col-lg-6">
         <h3>Sipariş Konumu</h3>
         <hr />
-        <div class="vh-100 bg-secondary-subtle rounded-2"></div>
+        <div id="order_map" class="vh-100 rounded-2"></div>
       </div>
     </div>
   </div>
+  {% include 'partials/_orderdetal-mapbox.html' %}
 {% endblock %}

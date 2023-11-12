@@ -1,0 +1,18 @@
+<script>
+    mapboxgl.accessToken = "pk.eyJ1IjoiZmJla3RhcyIsImEiOiJjbG93MWlmcm8wdzZ2Mm1sOTF2bGxpZjJ6In0.j4fN8cNyUpnLVUFXMPEKiA";
+    adr = "{{ order.address }}"
+    adr = adr.substring(1, adr.length - 2)
+    a = adr.split(",")
+    var map = new mapboxgl.Map({
+        container: 'order_map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [a[0], a[1]],
+        zoom: 15
+    });
+
+    var marker1 = new mapboxgl.Marker()
+        .setLngLat([a[0], a[1]])
+        .setPopup(new mapboxgl.Popup({offset: 25})
+            .setHTML('<p><b>{{ order.customer.name }}</b><br/>Müşteri</p>'))
+        .addTo(map);
+</script>

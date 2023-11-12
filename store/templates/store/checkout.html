@@ -4,13 +4,17 @@
 {% block content %}
   <div class="container">
     <div class="row">
-      <div class="col-lg-5">
+      <div class="col-lg-6">
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <form action="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Siparişi Kaydet" class="btn btn-success" />
+          </form>
+          {{ form.media }}
         </div>
       </div>
-      <div class="col-lg-7">
+      <div class="col-lg-6">
         <div class="card">
           <div class="card-header">
             <a href="{% url 'store:shopping-cart' %}" class="btn btn-outline-success">&#x2190; Sepete Geri Dön</a>
@@ -48,7 +52,6 @@
           <div class="card-header d-flex justify-content-between">
             <h5 class="card-title">Miktar: <strong>{{ order.get_cart_items }} litre</strong></h5>
             <h5 class="card-title"><strong>{{ order.get_cart_total|floatformat:2 }} ₺</strong></h5>
-            <a href="{% url 'store:checkout' %}" class="btn btn-success">Sipariş Ver</a>
           </div>
         </div>
       </div>

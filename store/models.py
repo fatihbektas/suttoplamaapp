@@ -71,7 +71,9 @@ class Order(models.Model):
     is_delivered = models.BooleanField(
         verbose_name='Teslimat', default=False, null=True, blank=False)
     address = LocationField(verbose_name='Siparişin Konumu', null=True, blank=False, map_attrs={
-                            "placeholder": "Haritadan konum seçiniz."})
+                            'placeholder': 'Haritadan konum seçiniz.',
+                            'center': [38.59821903435276, 27.350622679963262],
+                            })
 
     def __str__(self):
         return str(self.id)

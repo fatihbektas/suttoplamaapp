@@ -8,6 +8,10 @@ class OrderAddressForm(forms.ModelForm):
         model = Order
         fields = ['address', 'note']
 
+        widgets = {
+            'Sipariş Notu': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Sipariş notu'})
+        }
+
 
 class OrderAssignForm(forms.ModelForm):
     class Meta:
