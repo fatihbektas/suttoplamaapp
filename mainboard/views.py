@@ -16,9 +16,9 @@ def mainboard(request):
     orders = Order.objects.all()
     customers = Customer.objects.all().exclude(user__groups__name='service')
 
-    total_orders = orders.count()
-    delivered = orders.filter(status='Delivered').count()
-    transporting = orders.filter(status='Transporting').count()
+    total_orders = orders.filter(transaction_id__isnull=False).count()
+    delivered = orders.filter(status='Teslim edildi').count()
+    transporting = orders.filter(status='Taşımada').count()
 
     context = {
         'orders': orders,
