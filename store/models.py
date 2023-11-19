@@ -59,7 +59,7 @@ class Order(models.Model):
     complete = models.BooleanField(default=False, null=True, blank=False)
     status = models.CharField(max_length=20, null=True,
                               choices=ORDER_STATUS, default='Sipariş alındı')
-    note = models.CharField(max_length=500, null=True)
+    note = models.CharField(max_length=500, null=True, blank=True)
     assign_date = models.DateTimeField(
         verbose_name='Servise atama tarihi', null=True)
     service_date = models.DateTimeField(
@@ -106,7 +106,7 @@ class Order(models.Model):
         return reverse('store:service', kwargs={'id': self.id})
 
     def get_delivery_url(self):
-        return reverse('store:delivery', kwargs={'id', self.id})
+        return reverse('store:delivery', kwargs={'id': self.id})
 
     class Meta:
         ordering = ['-date_ordered']

@@ -54,7 +54,6 @@ def shopping_cart(request):
 
 
 @login_required(login_url='account:login')
-@csrf_exempt
 def checkout(request):
     transaction_id = datetime.datetime.now().timestamp()
     customer = request.user.customer
@@ -120,7 +119,7 @@ def order_delete(request, id):
     if request.user.is_authenticated:
         order = get_object_or_404(Order, id=id)
         order.delete()
-        return redirect('mainboard:mainbord')
+        return redirect('mainboard:mainboard')
 
 
 @login_required(login_url='account:login')
@@ -159,8 +158,7 @@ def order_assign_to_service(request, id, sid):
     order.assign_date = datetime.datetime.now()
     order.save()
     messages.success(request, 'Sipariş servis ekibine atandı.')
-    print(Order.get_absolute_url())
-    return HttpResponseRedirect(Order.get_absolute_url())
+    return HttpResponseRedirect(order.get_absolute_url())
 
 
 @login_required(login_url='account:login')
@@ -175,7 +173,7 @@ def order_service(request, id):
     order.status = 'Taşımada'
     order.save()
     messages.success(request, 'Ürün teslim alındı/taşımada.')
-    return HttpResponseRedirect(Order.get_absolute_url())
+    return HttpResponseRedirect(order.get_absolute_url())
 
 
 @login_required(login_url='account:login')
@@ -190,4 +188,4 @@ def order_delivery(request, id):
     order.is_delivered = True
     order.save()
     messages.success(request, 'Ürün merkeze teslim edildi.')
-    return HttpResponseRedirect(Order.get_absolute_url())
+    return HttpResponseRedirect(order.get_absolute_url())

@@ -10,7 +10,6 @@
       <div class="table-responsive">
         <table id="userDataTable" class="table table-striped table-bordered">
           <thead class="table">
-            <th>Sipariş ID</th>
             <th>Sipariş Tarihi</th>
             <th>Durum</th>
             <th>Not</th>
@@ -20,19 +19,20 @@
           </thead>
           <tbody>
             {% for order in orders %}
-              <tr>
-                <td>{{ order.transaction_id }}</td>
-                <td>{{ order.date_ordered }}</td>
-                <td>{{ order.status }}</td>
-                <td>{{ order.note }}</td>
-                <td>{{ order.get_cart_total }}</td>
-                <td>
-                  <a class="btn btn btn-outline-success btn-sm" href="{{ order.get_absolute_url }}">Görüntüle</a>
-                </td>
-                <td>
-                  <a class="btn btn btn-outline-danger btn-sm" href="{{ order.get_delete_url }}">Sil</a>
-                </td>
-              </tr>
+              {% if order.transaction_id %}
+                <tr>
+                  <td>{{ order.date_ordered }}</td>
+                  <td>{{ order.status }}</td>
+                  <td>{{ order.note }}</td>
+                  <td>{{ order.get_cart_total }}</td>
+                  <td>
+                    <a class="btn btn btn-outline-success btn-sm" href="{{ order.get_absolute_url }}">Görüntüle</a>
+                  </td>
+                  <td>
+                    <a class="btn btn btn-outline-danger btn-sm" href="{{ order.get_delete_url }}">Sil</a>
+                  </td>
+                </tr>
+              {% endif %}
             {% endfor %}
           </tbody>
         </table>

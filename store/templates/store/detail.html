@@ -59,7 +59,7 @@
                   {% for item in items %}
                     <tr>
                       <td>{{ item.product.name }}</td>
-                      <td>{{ item.quantity }}</td>
+                      <td>{{ item.quantity }} litre</td>
                     </tr>
                   {% endfor %}
                 </tbody>
@@ -117,6 +117,35 @@
         <h3>Sipariş Konumu</h3>
         <hr />
         <div id="order_map" class="vh-100 rounded-2"></div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+          {% if perms.store.is_operator %}
+            {% if not order.service %}
+              <a class="btn btn-warning me-md-2" href="{{ order.get_assign_url }}">Servise ata</a>
+            {% elif not order.service_date %}
+              <div class="alert alert-warning mt-2" role="alert">Servis siparişi teslim almak için yola çıkmıştır.</div>
+            {% elif not order.delivery_date %}
+              <div class="alert alert-warning mt-2" role="alert">Servis siparişi toplama merkezine getirmektedir.</div>
+            {% else %}
+              <div class="alert alert-success mt-2" role="alert">Bu sipariş toplama merkezine teslim edilmiştir.</div>
+            {% endif %}
+          {% elif perms.store.is_service %}
+            {% if not order.service_date %}
+              <a class="btn btn-info me-md-2" href="{{ order.get_service_url }}">Teslim al</a>
+            {% elif not order.delivery_date %}
+              <a class="btn btn-success me-md-2" href="{{ order.get_delivery_url }}">Teslim et</a>
+            {% else %}
+              <div class="alert alert-success mt-2" role="alert">Bu sipariş toplama merkezine teslim edilmiştir.</div>
+            {% endif %}
+          {% else %}
+            {% if not order.service %}
+              <a class="btn btn-danger me-md-2" href="{{ order.get_delete_url }}">Sil</a>
+            {% elif not order.delivery_date %}
+              <div class="alert alert-warning mt-2" role="alert">Siparişiniz teslim aşamasındadır.</div>
+            {% else %}
+              <div class="alert alert-warning mt-2" role="alert">Bu sipariş toplama merkezine teslim edilmiştir.</div>
+            {% endif %}
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>

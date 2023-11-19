@@ -12,8 +12,10 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if request.user.groups.all()[0].name in ['customer', 'service']:
+            if request.user.groups.all()[0].name == "customer":
                 return redirect('mainboard:user-page')
+            elif request.user.groups.all()[0].name == "service":
+                return redirect('mainboard:service-page')
             else:
                 return redirect('mainboard:mainboard')
         else:
