@@ -53,6 +53,8 @@ def shopping_cart(request):
     return render(request, 'store/shopping-cart.html', context=context)
 
 
+@login_required(login_url='account:login')
+@csrf_exempt
 def checkout(request):
     transaction_id = datetime.datetime.now().timestamp()
     customer = request.user.customer
@@ -60,7 +62,6 @@ def checkout(request):
         customer=customer, complete=False
     )
     order.transaction_id = transaction_id
-
     form = OrderAddressForm(request.POST or None, instance=order)
 
     items = order.orderitem_set.all()
@@ -133,6 +134,8 @@ def order_detail(request, id):
     return render(request, 'store/detail.html', context=context)
 
 
+@login_required(login_url='accounts:login')
+@allowed_users(allowed_roles=['admin'])
 def order_assign(request, id):
     if not request.user.has_perm('order.is_operator'):
         return Http404()

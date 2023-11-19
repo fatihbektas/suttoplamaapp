@@ -87,7 +87,7 @@ def account_settings(request):
 @allowed_users(allowed_roles=['admin'])
 def view_customer(request, pk):
     customer = Customer.objects.get(id=pk)
-    orders = Customer.order_set.all()
+    orders = customer.order_set.all()
     order_count = orders.count()
 
     context = {

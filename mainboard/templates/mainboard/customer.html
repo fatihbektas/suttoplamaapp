@@ -6,19 +6,19 @@
   <div class="col">
     <div class="row pt-1">
       <div class="col-md">
-        <div class="card text-center">
+        <div class="card bg-primary-subtle text-center">
           <div class="card-header">İletişim Bilgisi</div>
           <div class="card-body">
-            <h5 class="card-title">532 126 12 77</h5>
-            <p class="card-text">vedat@gmail.com</p>
+            <h5 class="card-title">{{ customer.phone }}</h5>
+            <p class="card-text">{{ customer.email }}</p>
           </div>
         </div>
       </div>
       <div class="col-md">
-        <div class="card text-center" style="height: 100%;">
+        <div class="card bg-success-subtle text-center" style="height: 100%;">
           <div class="card-header">Toplam Sipariş</div>
           <div class="card-body">
-            <h5 class="card-title">98</h5>
+            <h5 class="card-title">{{ order_count }}</h5>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
     <div class="row pt-5">
       <div class="col-md">
         <div class="table-responsive">
-          <table id="customer-view-dataTable" class="table table-striped table-bordered">
+          <table id="customerViewDataTable" class="table table-striped table-bordered">
             <thead>
               <th>Sipariş ID</th>
               <th>Sipariş Tarihi</th>
@@ -38,15 +38,21 @@
               <th>Sil</th>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>13 Ekim 2023</td>
-                <td>Bekliyor</td>
-                <td>Servis2</td>
-                <td>850.00 ₺</td>
-                <td>Görüntüle</td>
-                <td>Sil</td>
-              </tr>
+              {% for order in orders %}
+                <tr>
+                  <td>{{ order.transaction_id }}</td>
+                  <td>{{ order.date_ordered }}</td>
+                  <td>{{ order.status }}</td>
+                  <td>{{ order.service.user }}</td>
+                  <td>{{ order.get_cart_total }} ₺</td>
+                  <td>
+                    <a class="btn btn btn-outline-success btn-sm" href="{{ order.get_absolute_url }}">Görüntüle</a>
+                  </td>
+                  <td>
+                    <a class="btn btn btn-outline-danger btn-sm" href="{{ order.get_delete_url }}">Sil</a>
+                  </td>
+                </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>

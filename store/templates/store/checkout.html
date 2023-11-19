@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="mb-3">
-          <form action="post">
+          <form id="form" action="POST">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Siparişi Kaydet" class="btn btn-success" />

@@ -19,7 +19,9 @@
           <tbody>
             {% for customer in customers %}
               <tr>
-                <td>Görüntüle</td>
+                <td>
+                  <a class="btn btn btn-outline-success btn-sm" href="{% url 'mainboard:customer' customer.id %}">Görüntüle</a>
+                </td>
                 <td>{{ customer.name }}</td>
                 <td>{{ customer.phone }}</td>
                 <td>{{ customer.email }}</td>
@@ -53,8 +55,12 @@
                 <td>{{ order.date_ordered }}</td>
                 <td>{{ order.status }}</td>
                 <td>{{ order.get_cart_total }} ₺</td>
-                <td>Görüntüle</td>
-                <td>Sil</td>
+                <td>
+                  <a class="btn btn btn-outline-success btn-sm" href="{{ order.get_absolute_url }}">Görüntüle</a>
+                </td>
+                <td>
+                  <a class="btn btn btn-outline-danger btn-sm" href="{{ order.get_delete_url }}">Sil</a>
+                </td>
               </tr>
             {% endfor %}
           </tbody>

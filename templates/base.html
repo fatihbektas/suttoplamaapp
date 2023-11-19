@@ -5,8 +5,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}" />
+
     {% block css_files %}
 
     {% endblock %}
@@ -19,6 +21,7 @@
 
     {% include 'partials/_externaljs.html' %}
 
+    <!-- Mapbox Location Field -->
     {% load mapbox_location_field_tags %}
     {% location_field_includes %}
     {% include_jquery %}
@@ -35,8 +38,9 @@
     {% include 'partials/_footer.html' %}
 
     <script type="text/javascript" src="{% static 'js/shoppingcart.js' %}"></script>
+    <!-- Bootstrap js -->
     <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-
+    <!-- Datatables js -->
     <script type="text/javascript" src="{% static 'js/jquery.dataTables.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/dataTables.bootstrap5.min.js' %}"></script>
 

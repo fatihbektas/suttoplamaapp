@@ -3,6 +3,7 @@
     adr = "{{ order.address }}"
     adr = adr.substring(1, adr.length - 2)
     a = adr.split(",")
+    console.log(a)
     var map = new mapboxgl.Map({
         container: 'order_map',
         style: 'mapbox://styles/mapbox/streets-v11',
