@@ -1,0 +1,116 @@
+<script>
+    var ctx = document.getElementById('myBarChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ labels_bar|safe }},
+            datasets: [{
+                label: '# Siparişler',
+                data: {{ data_bar|safe }},
+                backgroundColor: [
+                    'rgba(255,99,132,0.2)',
+                    'rgba(54,162,235,0.2)',
+                    'rgb(198,171,103)',
+                    'rgb(177,105,239)',
+
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgb(198,171,103)',
+                    'rgb(177,105,239)',
+
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<script>
+    var ctx = document.getElementById('myPieChart');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: {{ labels_pie|safe }},
+            datasets: [{
+                label: '# of Votes',
+                data: {{ data_pie|safe }},
+                backgroundColor: [
+                    'rgba(255,99,132,0.2)',
+                    'rgba(54,162,235,0.2)',
+                    'rgba(255,206,86,0.2)',
+                    'rgba(75,192,192,0.2)',
+                    'rgba(153,102,255,0.2)',
+                    'rgb(220,64,255)',
+                    'rgb(39,114,54)',
+                    'rgb(76,83,57)',
+                    'rgb(172,138,146)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<script>
+    var ctx = document.getElementById('myLineChart');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: {{ labels_line|safe }},
+            datasets: [{
+                label: '# Gider',
+                data: {{ data_line|safe }},
+                backgroundColor: [
+                    'rgb(227,192,128)',
+
+
+                ],
+                borderColor: [
+                    'rgb(160,152,137)',
+
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

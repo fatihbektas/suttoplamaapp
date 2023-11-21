@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Charts Page</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <script src="{% static 'js/Chart.min.js' %}"></script>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header bg-secondary-subtle">Bar Grafiği</div>
+        <div class="card-body">
+          <canvas id="myBarChart"></canvas>
+        </div>
+        <div class="card-footer medium text-muted text-center">Saha ekiplerine göre sipariş sayıları</div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header bg-secondary-subtle">Pasta Grafiği</div>
+        <div class="card-body">
+          <canvas id="myPieChart"></canvas>
+        </div>
+        <div class="card-footer medium text-muted text-center">En çok hizmet verilen ürünler</div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-secondary-subtle">Çizgi Grafiği</div>
+        <div class="card-body">
+          <canvas id="myLineChart" width="100%" height="25%"></canvas>
+        </div>
+        <div class="card-footer medium text-muted text-center">Aylara göre toplam harcama</div>
+      </div>
+    </div>
+  </div>
+  {% include 'partials/_chartjs.html' %}
+{% endblock %}
