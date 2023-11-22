@@ -139,8 +139,8 @@
           {% else %}
             {% if not order.service %}
               <a class="btn btn-danger me-md-2" href="{{ order.get_delete_url }}">Sil</a>
-            {% elif not order.delivery_date %}
-              <div class="alert alert-warning mt-2" role="alert">Siparişiniz teslim aşamasındadır.</div>
+            {% elif not order.service_date %}
+              <div class="alert alert-warning mt-2" role="alert">Saha ekiplerimiz siparişi teslim almak için yoldadır.</div>
             {% else %}
               <div class="alert alert-warning mt-2" role="alert">Bu sipariş toplama merkezine teslim edilmiştir.</div>
             {% endif %}

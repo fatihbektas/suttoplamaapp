@@ -88,9 +88,6 @@ def update_item(request):
     product_id = data['product_id']
     action = data['action']
 
-    print('Action: ', action)
-    print('Product: ', product_id)
-
     customer = request.user.customer
     product = Product.objects.get(id=product_id)
 
@@ -118,8 +115,23 @@ def update_item(request):
 def order_delete(request, id):
     if request.user.is_authenticated:
         order = get_object_or_404(Order, id=id)
-        order.delete()
-        return redirect('mainboard:mainboard')
+        user_group = request.user.groups.all()[0].name
+        if user_group == "customer" and not order.assign_date:
+            order.delete()
+            messages.success(request, "Siparişiniz silinmiştir.")
+            return redirect('mainboard:user-page')
+        elif user_group == "admin" and not order.assign_date:
+            order.delete()
+            messages.success(request, "Sipariş silinmiştir.")
+            return redirect('mainboard:mainboard')
+        else:
+            messages.error(request, "Bu aşamada silme işlemi yapılamaz.")
+            if user_group == "admin":
+                return redirect('mainboard:mainboard')
+            else:
+                return redirect('mainboard:user-page')
+    else:
+        messages.error(request, "Silme işlemi için yetkili değilsiniz.")
 
 
 @login_required(login_url='account:login')

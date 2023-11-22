@@ -35,8 +35,8 @@ def mainboard(request):
 @allowed_users(allowed_roles=['customer'])
 def user_page(request):
     orders = request.user.customer.order_set.all()
-    total_orders = orders.count()
 
+    total_orders = orders.filter(transaction_id__isnull=False).count()
     delivered = orders.filter(status='Teslim edildi').count()
     transporting = orders.filter(status='Taşımada').count()
 
@@ -54,8 +54,8 @@ def user_page(request):
 @allowed_users(allowed_roles=['service'])
 def service_page(request):
     orders = request.user.service.order_set.all()
-    total_orders = orders.count()
 
+    total_orders = orders.count()
     delivered = orders.filter(status='Teslim edildi').count()
     transporting = orders.filter(status='Taşımada').count()
 
